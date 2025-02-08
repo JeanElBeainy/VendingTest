@@ -17,17 +17,17 @@ public class Receipt {
             this.productPrice = productPrice;
             this.productQuantity = productQuantity;
             this.finalPrice = productPrice * productQuantity;
-            setItem(productName, Integer.toString(productPrice), Integer.toString(productQuantity));
+            setItem();
     }
 
-    public void setItem(String productName, String productPrice, String productQuantity) throws IOException {
-        writer.write(productName
+    public void setItem() throws IOException {
+        writer.write(this.productName
                 + ",        "
-                + productPrice
+                + this.productPrice
                 + ",         "
-                + productQuantity
+                + this.productQuantity
                 +",           "
-                + productPrice);
+                + finalPrice);
         writer.newLine();
     }
 }
