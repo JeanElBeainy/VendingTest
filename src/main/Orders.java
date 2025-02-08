@@ -29,12 +29,12 @@ public class Orders {
         return false;
     }
 
-    public static void initializeOrders(VendingMachine vendingMachine) {
-        ArrayList<String> arrayList1 = new ArrayList<>(3);
-        arrayList1.add(vendingMachine.productName);
-        arrayList1.add(String.valueOf(vendingMachine.productPrice));
-        arrayList1.add("1");
-        new Orders(arrayList1);
+    public static void initializeOrders(VendingMachine vendingMachine) { // double brace initialization
+        new Orders(new ArrayList<>() {{
+           add(vendingMachine.productName);
+           add(String.valueOf(vendingMachine.productPrice));
+           add("1");
+        }});
     }
 
     public static void listOrders() throws IOException { // static for usage in Main
